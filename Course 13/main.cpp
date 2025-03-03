@@ -87,6 +87,13 @@ int main()
     cout << "\n\nItem(0) Value Is : " << MydblLinkedList.GetItem(1) << endl;
 
 
+    MydblLinkedList.UpdateItem(0,900);
+    MydblLinkedList.PrintList();
+
+    MydblLinkedList.InsertAfter(3,99);
+    MydblLinkedList.PrintList();
+
+
     system("pause>0");
     
     return 0;

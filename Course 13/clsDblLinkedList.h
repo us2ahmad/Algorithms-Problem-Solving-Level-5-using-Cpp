@@ -57,6 +57,7 @@ public:
              4-Set the next pointer of the current node to the new node.
              5-Set the previous pointer of the next node to the new node(if it exists).
         */
+        if (current == NULL)return;
 
         Node* newNode = new Node();
         newNode->value = value;
@@ -70,6 +71,11 @@ public:
        
         current->next = newNode;
         _SetSize(true);
+    }
+
+    void InsertAfter(int index, T value)
+    {
+        InsertAfter(GetNode(index) ,value);
     }
 
     void InsertAtEnd(T value)
@@ -104,31 +110,31 @@ public:
         _SetSize(true);
     }
 
-    void DeleteNode(Node*& NodeToDelete)
+    void DeleteNode(Node*& nodeToDelete)
     {
         /*
             1-Set the next pointer of the previous node to the next pointer of the current node.
             2-Set the previous pointer of the next node to the previous pointer of the current node.
             3-Delete the current node.
         */
-        if (head == NULL || NodeToDelete == NULL) 
+        if (head == NULL || nodeToDelete == NULL)
         {
             return;
         }
-        if (head == NodeToDelete) 
+        if (head == nodeToDelete)
         {
-            head = NodeToDelete->next;
+            head = nodeToDelete->next;
         }
-        if (NodeToDelete->next != NULL) 
+        if (nodeToDelete->next != NULL)
         {
-            NodeToDelete->next->prev = NodeToDelete->prev;
+            nodeToDelete->next->prev = nodeToDelete->prev;
         }
-        if (NodeToDelete->prev != NULL)
+        if (nodeToDelete->prev != NULL)
         {
-            NodeToDelete->prev->next = NodeToDelete->next;
+            nodeToDelete->prev->next = nodeToDelete->next;
         }
        
-        delete NodeToDelete;
+        delete nodeToDelete;
         _SetSize(false);
 
     }
@@ -205,12 +211,12 @@ public:
 
     }
 
-    Node* Find(T Value)
+    Node* Find(T value)
     {
         Node* Current = head;
         while (Current != NULL)
         {
-            if (Current->value == Value)
+            if (Current->value == value)
                 return Current;
 
             Current = Current->next;
@@ -257,9 +263,9 @@ public:
         }
     }
 
-    Node* GetNode(int Index)
+    Node* GetNode(int index)
     {
-        if (Index > _Size - 1 || Index < 0)
+        if (index > _Size - 1 || index < 0)
             return NULL;
         
         int Counter = 0;
@@ -267,7 +273,7 @@ public:
 
         while (Current != NULL && (Current->next != NULL)) 
         {
-            if (Counter == Index)
+            if (Counter == index)
                 break;
 
             Current = Current->next;
@@ -277,10 +283,23 @@ public:
         return Current;
     }
 
-    T GetItem(int Index)
+    T GetItem(int index)
     {
-        Node* ItemNode = GetNode(Index);
+        Node* ItemNode = GetNode(index);
 
         return ItemNode != NULL ? ItemNode->value : NULL;
+    }
+
+    bool UpdateItem(int index,T value)
+    {
+        Node* ItemNode = GetNode(index);
+        
+        if (ItemNode != NULL) 
+        {
+            ItemNode->value = value;
+            return true;
+        }
+    
+        return false;
     }
 };
