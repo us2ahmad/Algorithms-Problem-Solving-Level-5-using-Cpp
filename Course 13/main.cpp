@@ -1,16 +1,20 @@
-//ProgrammingAdvices.com
-//Mohammed Abu-Hadhoud
-
 #include <iostream>
 #include "clsDblLinkedList.h"
 
 using namespace std;
 
-
 int main()
 {
-
     clsDblLinkedList <int> MydblLinkedList;
+
+    if (MydblLinkedList.IsEmpty()) 
+    {
+        cout << "\n\nYes, List Is Empty.\n";
+    }
+    else
+    {
+        cout << "\n\No, List Is Not Empty.\n";
+    }
 
     MydblLinkedList.InsertAtBeginning(5);
     MydblLinkedList.InsertAtBeginning(4);
@@ -20,6 +24,16 @@ int main()
 
     cout << "\nLinked List Contenet:\n";
     MydblLinkedList.PrintList();
+
+
+    if (MydblLinkedList.IsEmpty())
+    {
+        cout << "\n\nYes, List Is Empty.\n";
+    }
+    else
+    {
+        cout << "\n\No, List Is Not Empty.\n";
+    }
 
     clsDblLinkedList<int>::Node* N1 = MydblLinkedList.Find(2);
 
@@ -48,7 +62,32 @@ int main()
     cout << "\nAfter Deleting Last Node:\n";
     MydblLinkedList.DeleteLastNode();
     MydblLinkedList.PrintList();
+    
+
+    MydblLinkedList.Reverse();
+    MydblLinkedList.PrintList();
+
+    //cout << "\n\nLinked List Size : " << MydblLinkedList.Size() << endl;
+    //
+    //MydblLinkedList.Clear();
+    //
+    //if (MydblLinkedList.IsEmpty())
+    //{
+    //    cout << "\n\nYes, List Is Empty.\n";
+    //}
+    //else
+    //{
+    //    cout << "\n\No, List Is Not Empty.\n";
+    //}
+
+    clsDblLinkedList<int>::Node* N3 = MydblLinkedList.GetNode(1);
+    
+    cout << "Node Index 1 : " << N3->value << endl;
+
+    cout << "\n\nItem(0) Value Is : " << MydblLinkedList.GetItem(1) << endl;
+
 
     system("pause>0");
-
+    
+    return 0;
 }

@@ -6,6 +6,12 @@ using namespace std;
 template <class T>
 class clsDblLinkedList
 {
+private:
+    int _Size = 0;
+    void _SetSize(bool Increase = true)
+    {
+        Increase ? _Size++ : _Size--;
+    }
 public:
 
     class Node
@@ -18,6 +24,8 @@ public:
 
     Node* head = NULL;
 
+    // Print the linked list
+   
     void InsertAtBeginning(T value)
     {
         /*
@@ -38,36 +46,9 @@ public:
         }
 
         head = newNode;
+        _SetSize(true);
     }
-
-    // Print the linked list
-    void PrintList()
-    {
-        Node* Current = head;
-
-        while (Current != NULL)
-        {
-            cout << Current->value << " ";
-            Current = Current->next;
-        }
-        cout << "\n";
-
-    }
-
-    Node* Find(T Value)
-    {
-        Node* Current = head;
-        while (Current != NULL)
-        {
-            if (Current->value == Value)
-                return Current;
-
-            Current = Current->next;
-        }
-
-        return NULL;
-    }
-
+ 
     void InsertAfter(Node* current, T value)
     {
         /*  1 - Create a new node with the desired value.
@@ -88,6 +69,7 @@ public:
         }
        
         current->next = newNode;
+        _SetSize(true);
     }
 
     void InsertAtEnd(T value)
@@ -118,6 +100,8 @@ public:
             current->next = newNode;
             newNode->prev = current;
         }
+
+        _SetSize(true);
     }
 
     void DeleteNode(Node*& NodeToDelete)
@@ -145,6 +129,8 @@ public:
         }
        
         delete NodeToDelete;
+        _SetSize(false);
+
     }
 
     void DeleteFirstNode()
@@ -169,6 +155,8 @@ public:
             head->prev = NULL;
         }
         delete temp;
+        _SetSize(false);
+
     }
 
     void DeleteLastNode() 
@@ -201,5 +189,98 @@ public:
         Node* temp = current->next;
         current->next = NULL;
         delete temp;
+        _SetSize(false);
+    }
+
+    void PrintList()
+    {
+        Node* Current = head;
+
+        while (Current != NULL)
+        {
+            cout << Current->value << " ";
+            Current = Current->next;
+        }
+        cout << "\n";
+
+    }
+
+    Node* Find(T Value)
+    {
+        Node* Current = head;
+        while (Current != NULL)
+        {
+            if (Current->value == Value)
+                return Current;
+
+            Current = Current->next;
+        }
+
+        return NULL;
+    }
+    
+    int Size() 
+    {
+        return _Size;
+    }
+    
+    bool IsEmpty() 
+    {
+        return _Size == 0;
+    }
+  
+    void Clear() 
+    {
+        while (_Size > 0)
+        {
+            DeleteFirstNode();
+        }
+    }
+
+    void Reverse() 
+    {
+        Node* Current = head;
+        Node* Temp = NULL;
+
+        while (Current != NULL)
+        {
+            Temp = Current->prev;
+            Current->prev = Current->next;
+            Current->next = Temp;
+            Current = Current->prev;
+
+        }
+
+        if (Temp != NULL) 
+        {
+            head = Temp->prev;
+        }
+    }
+
+    Node* GetNode(int Index)
+    {
+        if (Index > _Size - 1 || Index < 0)
+            return NULL;
+        
+        int Counter = 0;
+        Node* Current = head;
+
+        while (Current != NULL && (Current->next != NULL)) 
+        {
+            if (Counter == Index)
+                break;
+
+            Current = Current->next;
+            Counter++;
+        }
+
+        return Current;
+    }
+
+    T GetItem(int Index)
+    {
+        Node* ItemNode = GetNode(Index);
+
+        return ItemNode != NULL ? ItemNode->value : NULL;
     }
 };
