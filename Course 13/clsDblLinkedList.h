@@ -195,6 +195,7 @@ public:
         Node* temp = current->next;
         current->next = NULL;
         delete temp;
+        delete current;
         _SetSize(false);
     }
 
@@ -208,7 +209,7 @@ public:
             Current = Current->next;
         }
         cout << "\n";
-
+        delete Current;
     }
 
     Node* Find(T value)
