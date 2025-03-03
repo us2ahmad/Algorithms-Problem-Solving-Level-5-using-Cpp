@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="clsDblLinkedList.h" />
+    <ClInclude Include="clsDynamicArray.h" />
     <ClInclude Include="clsMyQueue.h" />
     <ClInclude Include="clsMyStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainDblLinkedList.cpp" />
+    <ClCompile Include="MainDynamicArray.cpp" />
     <ClCompile Include="MainMyQueue.cpp" />
     <ClCompile Include="MainMyStack.cpp" />
   </ItemGroup>
