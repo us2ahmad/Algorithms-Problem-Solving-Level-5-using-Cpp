@@ -132,6 +132,7 @@
     <ClInclude Include="clsMyQueue.h" />
     <ClInclude Include="clsMyQueueArr.h" />
     <ClInclude Include="clsMyStack.h" />
+    <ClInclude Include="clsMyStackArr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainDblLinkedList.cpp" />
@@ -139,6 +140,7 @@
     <ClCompile Include="MainMyQueue.cpp" />
     <ClCompile Include="MainMyQueueArr.cpp" />
     <ClCompile Include="MainMyStack.cpp" />
+    <ClCompile Include="MainMyStackArr.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

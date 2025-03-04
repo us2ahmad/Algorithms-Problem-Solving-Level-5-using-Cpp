@@ -33,6 +33,9 @@
     <ClCompile Include="MainMyQueueArr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainMyStackArr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsDblLinkedList.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files\DS</Filter>
     </ClInclude>
     <ClInclude Include="clsMyQueueArr.h">
+      <Filter>Header Files\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="clsMyStackArr.h">
       <Filter>Header Files\DS</Filter>
     </ClInclude>
   </ItemGroup>

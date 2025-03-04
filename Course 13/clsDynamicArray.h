@@ -14,10 +14,7 @@ public:
 	
 	clsDynamicArray(int size = 0) 
 	{
-		if (size < 0)
-			size = 0;
-
-		_Size = size;
+		_Size = size < 0 ? 0 : size;
 		OriginalArray = new T[_Size];
 	}
 
