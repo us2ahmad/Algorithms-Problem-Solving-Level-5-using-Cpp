@@ -133,8 +133,10 @@
     <ClInclude Include="clsMyQueueArr.h" />
     <ClInclude Include="clsMyStack.h" />
     <ClInclude Include="clsMyStackArr.h" />
+    <ClInclude Include="clsMyUndoRedoManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MainMyUndoRedoManager.cpp" />
     <ClCompile Include="MainDblLinkedList.cpp" />
     <ClCompile Include="MainDynamicArray.cpp" />
     <ClCompile Include="MainMyQueue.cpp" />
