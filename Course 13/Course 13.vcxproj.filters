@@ -39,6 +39,9 @@
     <ClCompile Include="MainMyUndoRedoManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainQueueLine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsDblLinkedList.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files\DS</Filter>
     </ClInclude>
     <ClInclude Include="clsMyUndoRedoManager.h">
+      <Filter>Header Files\DS</Filter>
+    </ClInclude>
+    <ClInclude Include="clsQueueLine.h">
       <Filter>Header Files\DS</Filter>
     </ClInclude>
   </ItemGroup>

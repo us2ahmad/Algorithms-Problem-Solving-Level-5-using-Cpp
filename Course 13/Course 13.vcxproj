@@ -134,6 +134,7 @@
     <ClInclude Include="clsMyStack.h" />
     <ClInclude Include="clsMyStackArr.h" />
     <ClInclude Include="clsMyUndoRedoManager.h" />
+    <ClInclude Include="clsQueueLine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainMyUndoRedoManager.cpp" />
@@ -143,6 +144,7 @@
     <ClCompile Include="MainMyQueueArr.cpp" />
     <ClCompile Include="MainMyStack.cpp" />
     <ClCompile Include="MainMyStackArr.cpp" />
+    <ClCompile Include="MainQueueLine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
